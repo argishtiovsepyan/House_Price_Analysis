@@ -1,4 +1,4 @@
-# Evaluating the Impact of Optional ACT and SAT Tests on Student Participation and Performance
+# Predicting Housing Prices for House Hunters in Ames, Iowa
 
 As a data scientist hired by the reality TV show House Hunters, my task is to create a predictive model that accurately estimates housing prices in Ames, Iowa. The show's producers want me to provide a reliable tool for couples on the show to help them make informed decisions while searching for their dream home in Ames.
 
@@ -14,10 +14,12 @@ https://jse.amstat.org/v19n3/decock/DataDocumentation.txt
 
 # Executive Summary
 
-This project aims to evaluate the impact of making ACT and SAT tests optional on student participation rates and scores. With many colleges making these tests optional in 2021 due to the Covid-19 pandemic, it provides a unique opportunity to assess whether the requirement of these tests influences student participation and if voluntary participation leads to improved scores.
+To ensure high-quality data, I conducted a thorough data inspection, cleaning, and pre-processing phase. I handled missing numeric values by using robust median imputation and excluded features with over 50% missing values or consistent values throughout the dataset as non-informative. For houses lacking essential features like a garage or basement, I applied suitable categorical imputations to maintain dataset consistency.
 
-The methodology involves a comparative analysis of data from 2017, 2018, and 2019 versus 2021, with particular emphasis on changes in participation rates and scores. Data sources include ACT and SAT test participation rates and scores, and information on college test requirements. The analysis will employ statistical testing and visualizations to discern any significant trends.
+In the feature selection process, I prioritized numeric features with a correlation coefficient above 0.3, indicating strong predictive potential. Categorical feature selection followed a customized approach that resembled real-life home purchase criteria. I identified and removed outliers through pairplot visualizations and comprehensive descriptions.
 
-The key findings and insights from this project will help determine the ongoing value of investing in these tests and offer a more nuanced understanding of student motivation and performance in the context of standardized testing. This will, in turn, provide a basis for informed recommendations to the U.S. Department of Education about the future of ACT and SAT requirements.
+To ensure uniform scaling, I performed data standardization, which was crucial for creating polynomial features that could possibly amplify feature discrepancies. Categorical data were transformed into numerical formats using one-hot encoding, making them suitable for the machine learning model. I appropriately processed features like "Overall Quality" considering their numerical and categorical aspects.
 
-The conclusions drawn from the findings will enable the U.S. Department of Education to make informed decisions about resource allocation and policy changes related to standardized testing. Future steps could include investigating other aspects of learning such as mindfulness practice for mental health and financial literacy that could be prioritized and exploring the impact of such changes on college admission outcomes.
+The machine learning model I implemented, the LassoCV Regression, performed exceptionally well. It achieved an R-squared score of 0.938 on the training data and 0.936 on the test data, demonstrating high predicition power and good generalization to unseen data. The model predicted a base sale price of 168,274.13 when all house features are zero, with an average deviation from actual house prices of 20,179.96 (Root Mean Square Error).
+
+The model's unbiased predictions and reliability were confirmed through evidence of homoscedasticity and normality of errors. The equal spread of residuals across predicted values and their normal distribution further affirmed the model's competence in accurately predicting Ames housing market prices.
